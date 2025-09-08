@@ -1,8 +1,8 @@
+import { createId } from '@paralleldrive/cuid2'
 import { eq } from 'drizzle-orm'
 import Elysia, { t } from 'elysia'
 import { db } from '../../db/connection'
 import { authLinks, users } from '../../db/schema'
-import { createId } from '@paralleldrive/cuid2'
 import { env } from '../../utils/env'
 
 export const sendAuthLink = new Elysia().post(

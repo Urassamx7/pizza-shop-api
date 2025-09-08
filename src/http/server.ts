@@ -1,6 +1,6 @@
 import { Elysia } from 'elysia'
-import { registerRestaurant } from './routes/register-restaurant'
 import { sendAuthLink } from './routes/auth-link'
+import { registerRestaurant } from './routes/register-restaurant'
 
 const app = new Elysia().use(registerRestaurant).use(sendAuthLink)
 
