@@ -4,7 +4,7 @@ import { auth } from './auth'
 
 export const getManagedRestsaurant = new Elysia()
   .use(auth)
-  .get('/me', async ({ getCurrentUser }) => {
+  .get('/managed-restaurant', async ({ getCurrentUser }) => {
     const { restaurantId } = await getCurrentUser()
 
     if (!restaurantId) {

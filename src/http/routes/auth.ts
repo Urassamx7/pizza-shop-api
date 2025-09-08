@@ -18,7 +18,7 @@ export const auth = new Elysia()
     }),
   )
   .use(cookie())
-  .derive(({ jwt, cookie, setCookie, removeCookie }) => {
+  .derive({ as: 'global' }, ({ jwt, cookie, setCookie, removeCookie }) => {
     return {
       signUser: async (payload: JwtPayload) => {
         const token = await jwt.sign(payload)
