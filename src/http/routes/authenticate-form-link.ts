@@ -1,8 +1,8 @@
-import Elysia from 'elysia'
-import { db } from '../../db/connection'
-import { eq } from 'drizzle-orm'
-import { authLinks, restaurant } from '../../db/schema'
 import dayjs from 'dayjs'
+import { eq } from 'drizzle-orm'
+import { Elysia } from 'elysia'
+import { db } from '../../db/connection'
+import { authLinks, restaurant } from '../../db/schema'
 import { auth } from './auth'
 
 export const authenticateFromLink = new Elysia()

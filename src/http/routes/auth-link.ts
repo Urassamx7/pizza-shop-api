@@ -1,6 +1,6 @@
 import { createId } from '@paralleldrive/cuid2'
 import { eq } from 'drizzle-orm'
-import Elysia, { t } from 'elysia'
+import { Elysia, t } from 'elysia'
 import { db } from '../../db/connection'
 import { authLinks, users } from '../../db/schema'
 import { env } from '../../utils/env'
