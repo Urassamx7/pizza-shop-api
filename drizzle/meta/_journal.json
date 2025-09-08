@@ -29,6 +29,13 @@
       "when": 1757307360596,
       "tag": "0003_furry_shockwave",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1757314720436,
+      "tag": "0004_simple_exiles",
+      "breakpoints": true
     }
   ]
 }
