@@ -36,6 +36,13 @@
       "when": 1757314720436,
       "tag": "0004_simple_exiles",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1757574778087,
+      "tag": "0005_wise_bullseye",
+      "breakpoints": true
     }
   ]
 }
