@@ -2,6 +2,7 @@ import { eq } from 'drizzle-orm'
 import { Elysia } from 'elysia'
 import { db } from '../../db/connection'
 import { users } from '../../db/schema'
+import { UnauthorizedError } from '../errors/unauthorized-error'
 import { auth } from './auth'
 
 export const getProfile = new Elysia()
@@ -14,7 +15,7 @@ export const getProfile = new Elysia()
     })
 
     if (!user) {
-      throw new Error('User not found')
+      throw new UnauthorizedError()
     }
 
     return user
