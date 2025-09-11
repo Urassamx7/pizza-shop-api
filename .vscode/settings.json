@@ -12,6 +12,6 @@
     "source.organizeImports.biome": "explicit"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   }
 }

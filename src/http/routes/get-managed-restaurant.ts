@@ -2,7 +2,7 @@ import { Elysia } from 'elysia'
 import { db } from '../../db/connection'
 import { auth } from './auth'
 
-export const getManagedRestsaurant = new Elysia()
+export const getManagedRestaurant = new Elysia()
   .use(auth)
   .get('/managed-restaurant', async ({ getCurrentUser }) => {
     const { restaurantId } = await getCurrentUser()
@@ -18,7 +18,7 @@ export const getManagedRestsaurant = new Elysia()
     })
 
     if (!managedRestaurant) {
-      throw new Error('User not found')
+      throw new Error('Restaurant not found')
     }
 
     return managedRestaurant
