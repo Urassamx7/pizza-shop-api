@@ -1,14 +1,14 @@
 import dayjs from 'dayjs'
 import { eq } from 'drizzle-orm'
-import { Elysia } from 'elysia'
+import { Elysia, t } from 'elysia'
 import { db } from '../../db/connection'
 import { authLinks, restaurant } from '../../db/schema'
 import { auth } from './auth'
 
-export const authenticateFromLink = new Elysia()
-  .use(auth)
-  .get('/auth-links/authenticate', async ({ query, set, signUser }) => {
-    const { code, redirect } = query
+export const authenticateFromLink = new Elysia().use(auth).get(
+  '/auth-links/authenticate',
+  async ({ query, redirect, signUser }) => {
+    const { code, redirect: redirectUrl } = query
 
     const authLinkFromCode = await db.query.authLinks.findFirst({
       where: eq(authLinks.code, code as string),
@@ -40,5 +40,12 @@ export const authenticateFromLink = new Elysia()
 
     await db.delete(authLinks).where(eq(authLinks.code, code as string))
 
-    set.redirect = redirect
-  })
+    return redirect(redirectUrl)
+  },
+  {
+    query: t.Object({
+      code: t.String(),
+      redirect: t.String(),
+    }),
+  },
+)
