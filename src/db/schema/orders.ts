@@ -1,7 +1,7 @@
 import { createId } from '@paralleldrive/cuid2'
-import { integer, pgEnum, pgTable, text, timestamp } from 'drizzle-orm/pg-core'
-import { users, restaurant, orderItems } from '.'
 import { relations } from 'drizzle-orm'
+import { integer, pgEnum, pgTable, text, timestamp } from 'drizzle-orm/pg-core'
+import { orderItems, restaurant, users } from '.'
 
 export const orderStatusEnum = pgEnum('order_status', [
   'pending',
@@ -18,7 +18,7 @@ export const orders = pgTable('orders', {
   customerId: text('customer_id').references(() => users.id, {
     onDelete: 'set null',
   }),
-  restaurantId: text('restaurant').references(() => users.id, {
+  restaurantId: text('restaurant').references(() => restaurant.id, {
     onDelete: 'cascade',
   }),
   status: orderStatusEnum('Status').default('pending').notNull(),

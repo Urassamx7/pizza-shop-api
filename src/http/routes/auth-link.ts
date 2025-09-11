@@ -1,11 +1,11 @@
 import { createId } from '@paralleldrive/cuid2'
 import { eq } from 'drizzle-orm'
 import { Elysia, t } from 'elysia'
+import nodemailer from 'nodemailer'
 import { db } from '../../db/connection'
 import { authLinks, users } from '../../db/schema'
-import { env } from '../../utils/env'
 import { mail } from '../../lib/mail'
-import nodemailer from 'nodemailer'
+import { env } from '../../utils/env'
 
 export const sendAuthLink = new Elysia().post(
   '/authenticate',
