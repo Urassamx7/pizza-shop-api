@@ -11,7 +11,7 @@ export const getManagedRestaurant = new Elysia()
       throw new Error('User does not manage any restaurant.')
     }
 
-    const managedRestaurant = await db.query.users.findFirst({
+    const managedRestaurant = await db.query.restaurant.findFirst({
       where(fields, { eq }) {
         return eq(fields.id, restaurantId)
       },
