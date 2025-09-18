@@ -24,7 +24,7 @@ export const registerRestaurant = new Elysia().post(
       managerId: manager?.id,
     })
 
-    set.status = 204
+    set.status = 201
   },
   {
     body: t.Object({
