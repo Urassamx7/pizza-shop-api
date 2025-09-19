@@ -31,7 +31,7 @@ export const getOrders = new Elysia().use(auth).get(
           eq(orders.restaurantId, restaurantId),
           orderId ? ilike(orders.id, `%${orderId}%`) : undefined,
           status ? eq(orders.status, status) : undefined,
-          customerName ? eq(users.name, `%${customerName}%`) : undefined,
+          customerName ? ilike(users.name, `%${customerName}%`) : undefined,
         ),
       )
 
@@ -57,8 +57,7 @@ export const getOrders = new Elysia().use(auth).get(
     ])
 
     const amountOfOrders = amountOfOrderQuery[0]?.count
-
-    return {
+    const result = {
       orders: allOrders,
       meta: {
         pageIndex,
@@ -66,6 +65,8 @@ export const getOrders = new Elysia().use(auth).get(
         totalCount: amountOfOrders,
       },
     }
+
+    return result
   },
   {
     query: t.Object({
