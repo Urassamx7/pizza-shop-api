@@ -1,10 +1,10 @@
 import dayjs from 'dayjs'
+import { and, count, eq, gte, sql } from 'drizzle-orm'
 import Elysia from 'elysia'
-import { UnauthorizedError } from '../errors/unauthorized-error'
-import { auth } from './auth'
 import { db } from '../../db/connection'
 import { orders } from '../../db/schema'
-import { eq, and, gte, sql, count } from 'drizzle-orm'
+import { UnauthorizedError } from '../errors/unauthorized-error'
+import { auth } from './auth'
 
 export const getMonthOrdersAmount = new Elysia()
   .use(auth)
