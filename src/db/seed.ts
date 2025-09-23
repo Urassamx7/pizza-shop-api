@@ -18,10 +18,10 @@ import { createId } from '@paralleldrive/cuid2'
  */
 
 await db.delete(users)
-await db.delete(restaurants)
 await db.delete(orderItems)
 await db.delete(orders)
 await db.delete(products)
+await db.delete(restaurants)
 await db.delete(authLinks)
 
 console.log(chalk.yellow('✔️ Database reset.'))
