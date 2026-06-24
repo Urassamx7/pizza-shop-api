@@ -1,6 +1,6 @@
 /* eslint-disable drizzle/enforce-delete-with-where */
-
 import { faker } from '@faker-js/faker'
+import { createId } from '@paralleldrive/cuid2'
 import chalk from 'chalk'
 import { db } from './connection'
 import {
@@ -11,7 +11,6 @@ import {
   restaurant as restaurants,
   users,
 } from './schema'
-import { createId } from '@paralleldrive/cuid2'
 
 /**
  * Reset database
